@@ -47,5 +47,8 @@ export async function api(path, { method = "GET", body, form } = {}) {
 
 export const CLASSES = ["First Class", "Second Class Upper", "Second Class Lower", "Third Class"];
 export const SHORT = { "First Class": "First", "Second Class Upper": "2:1", "Second Class Lower": "2:2", "Third Class": "Third" };
-export const CLASS_COLOR = { "First Class": "#2a78d6", "Second Class Upper": "#eb6834", "Second Class Lower": "#1baf7a", "Third Class": "#eda100" };
+// Class colours live in CSS (styles/tokens.css) so light and dark each get their validated steps.
+export const CLASS_COLOR = { "First Class": "var(--c-first)", "Second Class Upper": "var(--c-21)", "Second Class Lower": "var(--c-22)", "Third Class": "var(--c-third)" };
+export const CLASS_FLOOR = { "First Class": 3.5, "Second Class Upper": 3.0, "Second Class Lower": 2.0, "Third Class": 1.0 };
+export const classForGpa = (g) => (g >= 3.5 ? "First Class" : g >= 3.0 ? "Second Class Upper" : g >= 2.0 ? "Second Class Lower" : "Third Class");
 export const pct = (x, d = 0) => `${(x * 100).toFixed(d)}%`;
