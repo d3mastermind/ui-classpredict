@@ -1,0 +1,12 @@
+node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+backend/classpredict.db
+*.db
+.env
+.DS_Store
+docs/out/
+docs/build/node_modules/
+docs/build/

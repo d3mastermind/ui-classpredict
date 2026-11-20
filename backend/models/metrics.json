@@ -1,0 +1,1080 @@
+{
+  "dataset": {
+    "file": "simulated_ui_students.csv",
+    "records": 4000,
+    "note": "Simulated records that follow UI 4.0 grading rules. No real student data was used.",
+    "class_counts": {
+      "First Class": 221,
+      "Second Class Upper": 963,
+      "Second Class Lower": 2585,
+      "Third Class": 231
+    },
+    "entry_mode_counts": {
+      "UTME": 3479,
+      "DE": 521
+    },
+    "faculty_counts": {
+      "Science": 814,
+      "Social Sciences": 637,
+      "Technology": 605,
+      "Arts": 513,
+      "Agriculture": 497,
+      "Economics and Management Sciences": 490,
+      "Education": 444
+    }
+  },
+  "stages": {
+    "1": {
+      "label": "End of 100 Level",
+      "train_size": 2783,
+      "test_size": 696,
+      "features": [
+        "faculty",
+        "entry_mode",
+        "utme_score",
+        "olevel_points",
+        "gpa_100_1",
+        "gpa_100_2",
+        "cgpa_so_far",
+        "latest_gpa",
+        "gpa_trend"
+      ],
+      "gpa_inputs": [
+        "gpa_100_1",
+        "gpa_100_2"
+      ],
+      "best_model": "Random Forest",
+      "models": {
+        "Logistic Regression": {
+          "best_params": {
+            "C": 10.0
+          },
+          "accuracy": 0.704,
+          "macro_f1": 0.6251,
+          "weighted_f1": 0.7215,
+          "macro_precision": 0.5799,
+          "macro_recall": 0.7434,
+          "within_one_class": 0.9957,
+          "cv_accuracy_mean": 0.6852,
+          "cv_accuracy_std": 0.0198,
+          "per_class": {
+            "First Class": {
+              "precision": 0.4915,
+              "recall": 0.8056,
+              "f1": 0.6105,
+              "support": 36
+            },
+            "Second Class Upper": {
+              "precision": 0.5957,
+              "recall": 0.6667,
+              "f1": 0.6292,
+              "support": 168
+            },
+            "Second Class Lower": {
+              "precision": 0.8955,
+              "recall": 0.7013,
+              "f1": 0.7866,
+              "support": 452
+            },
+            "Third Class": {
+              "precision": 0.3368,
+              "recall": 0.8,
+              "f1": 0.4741,
+              "support": 40
+            }
+          },
+          "confusion_matrix": [
+            [
+              29,
+              7,
+              0,
+              0
+            ],
+            [
+              27,
+              112,
+              29,
+              0
+            ],
+            [
+              3,
+              69,
+              317,
+              63
+            ],
+            [
+              0,
+              0,
+              8,
+              32
+            ]
+          ],
+          "train_seconds": 1.7
+        },
+        "Decision Tree": {
+          "best_params": {
+            "max_depth": 6,
+            "min_samples_leaf": 5
+          },
+          "accuracy": 0.658,
+          "macro_f1": 0.5973,
+          "weighted_f1": 0.6803,
+          "macro_precision": 0.5634,
+          "macro_recall": 0.7113,
+          "within_one_class": 0.9957,
+          "cv_accuracy_mean": 0.6504,
+          "cv_accuracy_std": 0.0223,
+          "per_class": {
+            "First Class": {
+              "precision": 0.5577,
+              "recall": 0.8056,
+              "f1": 0.6591,
+              "support": 36
+            },
+            "Second Class Upper": {
+              "precision": 0.5681,
+              "recall": 0.7202,
+              "f1": 0.6352,
+              "support": 168
+            },
+            "Second Class Lower": {
+              "precision": 0.8777,
+              "recall": 0.6195,
+              "f1": 0.7263,
+              "support": 452
+            },
+            "Third Class": {
+              "precision": 0.25,
+              "recall": 0.7,
+              "f1": 0.3684,
+              "support": 40
+            }
+          },
+          "confusion_matrix": [
+            [
+              29,
+              7,
+              0,
+              0
+            ],
+            [
+              20,
+              121,
+              27,
+              0
+            ],
+            [
+              3,
+              85,
+              280,
+              84
+            ],
+            [
+              0,
+              0,
+              12,
+              28
+            ]
+          ],
+          "train_seconds": 0.5
+        },
+        "Random Forest": {
+          "best_params": {
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          },
+          "accuracy": 0.7414,
+          "macro_f1": 0.6379,
+          "weighted_f1": 0.7486,
+          "macro_precision": 0.6083,
+          "macro_recall": 0.6798,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.7352,
+          "cv_accuracy_std": 0.0206,
+          "per_class": {
+            "First Class": {
+              "precision": 0.5306,
+              "recall": 0.7222,
+              "f1": 0.6118,
+              "support": 36
+            },
+            "Second Class Upper": {
+              "precision": 0.5914,
+              "recall": 0.6548,
+              "f1": 0.6215,
+              "support": 168
+            },
+            "Second Class Lower": {
+              "precision": 0.871,
+              "recall": 0.792,
+              "f1": 0.8297,
+              "support": 452
+            },
+            "Third Class": {
+              "precision": 0.44,
+              "recall": 0.55,
+              "f1": 0.4889,
+              "support": 40
+            }
+          },
+          "confusion_matrix": [
+            [
+              26,
+              10,
+              0,
+              0
+            ],
+            [
+              23,
+              110,
+              35,
+              0
+            ],
+            [
+              0,
+              66,
+              358,
+              28
+            ],
+            [
+              0,
+              0,
+              18,
+              22
+            ]
+          ],
+          "train_seconds": 11.3
+        },
+        "Gradient Boosting": {
+          "best_params": {
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "n_estimators": 300
+          },
+          "accuracy": 0.7328,
+          "macro_f1": 0.6096,
+          "weighted_f1": 0.7394,
+          "macro_precision": 0.5877,
+          "macro_recall": 0.6385,
+          "within_one_class": 0.9957,
+          "cv_accuracy_mean": 0.7539,
+          "cv_accuracy_std": 0.0098,
+          "per_class": {
+            "First Class": {
+              "precision": 0.4783,
+              "recall": 0.6111,
+              "f1": 0.5366,
+              "support": 36
+            },
+            "Second Class Upper": {
+              "precision": 0.586,
+              "recall": 0.6488,
+              "f1": 0.6158,
+              "support": 168
+            },
+            "Second Class Lower": {
+              "precision": 0.8609,
+              "recall": 0.7942,
+              "f1": 0.8262,
+              "support": 452
+            },
+            "Third Class": {
+              "precision": 0.4255,
+              "recall": 0.5,
+              "f1": 0.4598,
+              "support": 40
+            }
+          },
+          "confusion_matrix": [
+            [
+              22,
+              13,
+              1,
+              0
+            ],
+            [
+              22,
+              109,
+              37,
+              0
+            ],
+            [
+              2,
+              64,
+              359,
+              27
+            ],
+            [
+              0,
+              0,
+              20,
+              20
+            ]
+          ],
+          "train_seconds": 58.3
+        }
+      },
+      "feature_importance": [
+        {
+          "feature": "cgpa_so_far",
+          "importance": 0.1754
+        },
+        {
+          "feature": "gpa_100_1",
+          "importance": 0.0378
+        },
+        {
+          "feature": "latest_gpa",
+          "importance": 0.018
+        },
+        {
+          "feature": "utme_score",
+          "importance": 0.0142
+        },
+        {
+          "feature": "faculty",
+          "importance": 0.0065
+        },
+        {
+          "feature": "gpa_100_2",
+          "importance": 0.0033
+        },
+        {
+          "feature": "entry_mode",
+          "importance": 0.0
+        },
+        {
+          "feature": "olevel_points",
+          "importance": -0.004
+        },
+        {
+          "feature": "gpa_trend",
+          "importance": -0.0058
+        }
+      ]
+    },
+    "2": {
+      "label": "End of 200 Level",
+      "train_size": 3200,
+      "test_size": 800,
+      "features": [
+        "faculty",
+        "entry_mode",
+        "utme_score",
+        "olevel_points",
+        "gpa_100_1",
+        "gpa_100_2",
+        "gpa_200_1",
+        "gpa_200_2",
+        "cgpa_so_far",
+        "latest_gpa",
+        "gpa_trend"
+      ],
+      "gpa_inputs": [
+        "gpa_100_1",
+        "gpa_100_2",
+        "gpa_200_1",
+        "gpa_200_2"
+      ],
+      "best_model": "Random Forest",
+      "models": {
+        "Logistic Regression": {
+          "best_params": {
+            "C": 10.0
+          },
+          "accuracy": 0.8175,
+          "macro_f1": 0.764,
+          "weighted_f1": 0.8263,
+          "macro_precision": 0.7085,
+          "macro_recall": 0.8653,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.8075,
+          "cv_accuracy_std": 0.0098,
+          "per_class": {
+            "First Class": {
+              "precision": 0.6452,
+              "recall": 0.9091,
+              "f1": 0.7547,
+              "support": 44
+            },
+            "Second Class Upper": {
+              "precision": 0.6833,
+              "recall": 0.8497,
+              "f1": 0.7575,
+              "support": 193
+            },
+            "Second Class Lower": {
+              "precision": 0.9737,
+              "recall": 0.7892,
+              "f1": 0.8718,
+              "support": 517
+            },
+            "Third Class": {
+              "precision": 0.5316,
+              "recall": 0.913,
+              "f1": 0.672,
+              "support": 46
+            }
+          },
+          "confusion_matrix": [
+            [
+              40,
+              4,
+              0,
+              0
+            ],
+            [
+              22,
+              164,
+              7,
+              0
+            ],
+            [
+              0,
+              72,
+              408,
+              37
+            ],
+            [
+              0,
+              0,
+              4,
+              42
+            ]
+          ],
+          "train_seconds": 0.7
+        },
+        "Decision Tree": {
+          "best_params": {
+            "max_depth": 4,
+            "min_samples_leaf": 20
+          },
+          "accuracy": 0.8087,
+          "macro_f1": 0.7506,
+          "weighted_f1": 0.8174,
+          "macro_precision": 0.6992,
+          "macro_recall": 0.8417,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.8181,
+          "cv_accuracy_std": 0.0118,
+          "per_class": {
+            "First Class": {
+              "precision": 0.6441,
+              "recall": 0.8636,
+              "f1": 0.7379,
+              "support": 44
+            },
+            "Second Class Upper": {
+              "precision": 0.6781,
+              "recall": 0.8187,
+              "f1": 0.7418,
+              "support": 193
+            },
+            "Second Class Lower": {
+              "precision": 0.9557,
+              "recall": 0.793,
+              "f1": 0.8668,
+              "support": 517
+            },
+            "Third Class": {
+              "precision": 0.519,
+              "recall": 0.8913,
+              "f1": 0.656,
+              "support": 46
+            }
+          },
+          "confusion_matrix": [
+            [
+              38,
+              6,
+              0,
+              0
+            ],
+            [
+              21,
+              158,
+              14,
+              0
+            ],
+            [
+              0,
+              69,
+              410,
+              38
+            ],
+            [
+              0,
+              0,
+              5,
+              41
+            ]
+          ],
+          "train_seconds": 0.6
+        },
+        "Random Forest": {
+          "best_params": {
+            "max_depth": null,
+            "min_samples_leaf": 2
+          },
+          "accuracy": 0.8525,
+          "macro_f1": 0.7986,
+          "weighted_f1": 0.8548,
+          "macro_precision": 0.7885,
+          "macro_recall": 0.8104,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.8588,
+          "cv_accuracy_std": 0.0083,
+          "per_class": {
+            "First Class": {
+              "precision": 0.7333,
+              "recall": 0.75,
+              "f1": 0.7416,
+              "support": 44
+            },
+            "Second Class Upper": {
+              "precision": 0.7209,
+              "recall": 0.8031,
+              "f1": 0.7598,
+              "support": 193
+            },
+            "Second Class Lower": {
+              "precision": 0.9289,
+              "recall": 0.8839,
+              "f1": 0.9058,
+              "support": 517
+            },
+            "Third Class": {
+              "precision": 0.7708,
+              "recall": 0.8043,
+              "f1": 0.7872,
+              "support": 46
+            }
+          },
+          "confusion_matrix": [
+            [
+              33,
+              11,
+              0,
+              0
+            ],
+            [
+              12,
+              155,
+              26,
+              0
+            ],
+            [
+              0,
+              49,
+              457,
+              11
+            ],
+            [
+              0,
+              0,
+              9,
+              37
+            ]
+          ],
+          "train_seconds": 14.6
+        },
+        "Gradient Boosting": {
+          "best_params": {
+            "learning_rate": 0.05,
+            "max_depth": 3,
+            "n_estimators": 150
+          },
+          "accuracy": 0.8213,
+          "macro_f1": 0.7614,
+          "weighted_f1": 0.8287,
+          "macro_precision": 0.7135,
+          "macro_recall": 0.8372,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.8562,
+          "cv_accuracy_std": 0.0072,
+          "per_class": {
+            "First Class": {
+              "precision": 0.6271,
+              "recall": 0.8409,
+              "f1": 0.7184,
+              "support": 44
+            },
+            "Second Class Upper": {
+              "precision": 0.6795,
+              "recall": 0.8238,
+              "f1": 0.7447,
+              "support": 193
+            },
+            "Second Class Lower": {
+              "precision": 0.959,
+              "recall": 0.8143,
+              "f1": 0.8808,
+              "support": 517
+            },
+            "Third Class": {
+              "precision": 0.5882,
+              "recall": 0.8696,
+              "f1": 0.7018,
+              "support": 46
+            }
+          },
+          "confusion_matrix": [
+            [
+              37,
+              7,
+              0,
+              0
+            ],
+            [
+              22,
+              159,
+              12,
+              0
+            ],
+            [
+              0,
+              68,
+              421,
+              28
+            ],
+            [
+              0,
+              0,
+              6,
+              40
+            ]
+          ],
+          "train_seconds": 77.2
+        }
+      },
+      "feature_importance": [
+        {
+          "feature": "cgpa_so_far",
+          "importance": 0.3473
+        },
+        {
+          "feature": "gpa_200_1",
+          "importance": 0.1666
+        },
+        {
+          "feature": "latest_gpa",
+          "importance": 0.0314
+        },
+        {
+          "feature": "gpa_200_2",
+          "importance": 0.0227
+        },
+        {
+          "feature": "gpa_100_2",
+          "importance": 0.0094
+        },
+        {
+          "feature": "faculty",
+          "importance": 0.0008
+        },
+        {
+          "feature": "utme_score",
+          "importance": -0.0011
+        },
+        {
+          "feature": "olevel_points",
+          "importance": -0.0031
+        },
+        {
+          "feature": "entry_mode",
+          "importance": -0.0047
+        },
+        {
+          "feature": "gpa_trend",
+          "importance": -0.0062
+        },
+        {
+          "feature": "gpa_100_1",
+          "importance": -0.0088
+        }
+      ]
+    },
+    "3": {
+      "label": "End of 300 Level",
+      "train_size": 3200,
+      "test_size": 800,
+      "features": [
+        "faculty",
+        "entry_mode",
+        "utme_score",
+        "olevel_points",
+        "gpa_100_1",
+        "gpa_100_2",
+        "gpa_200_1",
+        "gpa_200_2",
+        "gpa_300_1",
+        "gpa_300_2",
+        "cgpa_so_far",
+        "latest_gpa",
+        "gpa_trend",
+        "carryovers_by_300l"
+      ],
+      "gpa_inputs": [
+        "gpa_100_1",
+        "gpa_100_2",
+        "gpa_200_1",
+        "gpa_200_2",
+        "gpa_300_1",
+        "gpa_300_2"
+      ],
+      "best_model": "Random Forest",
+      "models": {
+        "Logistic Regression": {
+          "best_params": {
+            "C": 10.0
+          },
+          "accuracy": 0.905,
+          "macro_f1": 0.8594,
+          "weighted_f1": 0.9086,
+          "macro_precision": 0.8116,
+          "macro_recall": 0.9322,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.9147,
+          "cv_accuracy_std": 0.0123,
+          "per_class": {
+            "First Class": {
+              "precision": 0.7736,
+              "recall": 0.9318,
+              "f1": 0.8454,
+              "support": 44
+            },
+            "Second Class Upper": {
+              "precision": 0.8488,
+              "recall": 0.9016,
+              "f1": 0.8744,
+              "support": 193
+            },
+            "Second Class Lower": {
+              "precision": 0.9851,
+              "recall": 0.8956,
+              "f1": 0.9382,
+              "support": 517
+            },
+            "Third Class": {
+              "precision": 0.6389,
+              "recall": 1.0,
+              "f1": 0.7797,
+              "support": 46
+            }
+          },
+          "confusion_matrix": [
+            [
+              41,
+              3,
+              0,
+              0
+            ],
+            [
+              12,
+              174,
+              7,
+              0
+            ],
+            [
+              0,
+              28,
+              463,
+              26
+            ],
+            [
+              0,
+              0,
+              0,
+              46
+            ]
+          ],
+          "train_seconds": 0.7
+        },
+        "Decision Tree": {
+          "best_params": {
+            "max_depth": 4,
+            "min_samples_leaf": 20
+          },
+          "accuracy": 0.8938,
+          "macro_f1": 0.859,
+          "weighted_f1": 0.8974,
+          "macro_precision": 0.8112,
+          "macro_recall": 0.9311,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.8972,
+          "cv_accuracy_std": 0.0117,
+          "per_class": {
+            "First Class": {
+              "precision": 0.8039,
+              "recall": 0.9318,
+              "f1": 0.8632,
+              "support": 44
+            },
+            "Second Class Upper": {
+              "precision": 0.7946,
+              "recall": 0.9223,
+              "f1": 0.8537,
+              "support": 193
+            },
+            "Second Class Lower": {
+              "precision": 0.989,
+              "recall": 0.8704,
+              "f1": 0.9259,
+              "support": 517
+            },
+            "Third Class": {
+              "precision": 0.6571,
+              "recall": 1.0,
+              "f1": 0.7931,
+              "support": 46
+            }
+          },
+          "confusion_matrix": [
+            [
+              41,
+              3,
+              0,
+              0
+            ],
+            [
+              10,
+              178,
+              5,
+              0
+            ],
+            [
+              0,
+              43,
+              450,
+              24
+            ],
+            [
+              0,
+              0,
+              0,
+              46
+            ]
+          ],
+          "train_seconds": 0.7
+        },
+        "Random Forest": {
+          "best_params": {
+            "max_depth": null,
+            "min_samples_leaf": 2
+          },
+          "accuracy": 0.9275,
+          "macro_f1": 0.893,
+          "weighted_f1": 0.9284,
+          "macro_precision": 0.87,
+          "macro_recall": 0.9206,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.9297,
+          "cv_accuracy_std": 0.0135,
+          "per_class": {
+            "First Class": {
+              "precision": 0.8478,
+              "recall": 0.8864,
+              "f1": 0.8667,
+              "support": 44
+            },
+            "Second Class Upper": {
+              "precision": 0.8744,
+              "recall": 0.9016,
+              "f1": 0.8878,
+              "support": 193
+            },
+            "Second Class Lower": {
+              "precision": 0.9719,
+              "recall": 0.9381,
+              "f1": 0.9547,
+              "support": 517
+            },
+            "Third Class": {
+              "precision": 0.7857,
+              "recall": 0.9565,
+              "f1": 0.8627,
+              "support": 46
+            }
+          },
+          "confusion_matrix": [
+            [
+              39,
+              5,
+              0,
+              0
+            ],
+            [
+              7,
+              174,
+              12,
+              0
+            ],
+            [
+              0,
+              20,
+              485,
+              12
+            ],
+            [
+              0,
+              0,
+              2,
+              44
+            ]
+          ],
+          "train_seconds": 15.5
+        },
+        "Gradient Boosting": {
+          "best_params": {
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "n_estimators": 150
+          },
+          "accuracy": 0.92,
+          "macro_f1": 0.8846,
+          "weighted_f1": 0.9215,
+          "macro_precision": 0.8589,
+          "macro_recall": 0.9163,
+          "within_one_class": 1.0,
+          "cv_accuracy_mean": 0.9269,
+          "cv_accuracy_std": 0.015,
+          "per_class": {
+            "First Class": {
+              "precision": 0.8696,
+              "recall": 0.9091,
+              "f1": 0.8889,
+              "support": 44
+            },
+            "Second Class Upper": {
+              "precision": 0.8558,
+              "recall": 0.9223,
+              "f1": 0.8878,
+              "support": 193
+            },
+            "Second Class Lower": {
+              "precision": 0.9734,
+              "recall": 0.9207,
+              "f1": 0.9463,
+              "support": 517
+            },
+            "Third Class": {
+              "precision": 0.7368,
+              "recall": 0.913,
+              "f1": 0.8155,
+              "support": 46
+            }
+          },
+          "confusion_matrix": [
+            [
+              40,
+              4,
+              0,
+              0
+            ],
+            [
+              6,
+              178,
+              9,
+              0
+            ],
+            [
+              0,
+              26,
+              476,
+              15
+            ],
+            [
+              0,
+              0,
+              4,
+              42
+            ]
+          ],
+          "train_seconds": 93.3
+        }
+      },
+      "feature_importance": [
+        {
+          "feature": "cgpa_so_far",
+          "importance": 0.4327
+        },
+        {
+          "feature": "gpa_300_1",
+          "importance": 0.0456
+        },
+        {
+          "feature": "gpa_200_1",
+          "importance": 0.0254
+        },
+        {
+          "feature": "latest_gpa",
+          "importance": 0.0121
+        },
+        {
+          "feature": "gpa_300_2",
+          "importance": 0.0101
+        },
+        {
+          "feature": "carryovers_by_300l",
+          "importance": 0.0033
+        },
+        {
+          "feature": "gpa_200_2",
+          "importance": 0.0002
+        },
+        {
+          "feature": "gpa_trend",
+          "importance": -0.0029
+        },
+        {
+          "feature": "entry_mode",
+          "importance": -0.0036
+        },
+        {
+          "feature": "faculty",
+          "importance": -0.0038
+        },
+        {
+          "feature": "gpa_100_2",
+          "importance": -0.0044
+        },
+        {
+          "feature": "utme_score",
+          "importance": -0.0057
+        },
+        {
+          "feature": "olevel_points",
+          "importance": -0.0074
+        },
+        {
+          "feature": "gpa_100_1",
+          "importance": -0.0092
+        }
+      ]
+    }
+  },
+  "classes": [
+    "First Class",
+    "Second Class Upper",
+    "Second Class Lower",
+    "Third Class"
+  ],
+  "grading_scale": {
+    "First Class": [
+      3.5,
+      4.0
+    ],
+    "Second Class Upper": [
+      3.0,
+      3.49
+    ],
+    "Second Class Lower": [
+      2.0,
+      2.99
+    ],
+    "Third Class": [
+      1.0,
+      1.99
+    ]
+  }
+}
