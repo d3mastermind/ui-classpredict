@@ -7,7 +7,7 @@ import {
 } from "@solar-icons/react/linear";
 import { api, CLASSES, pct } from "../api";
 import { ease, rise, stagger } from "../lib/motion";
-import { Alert, BeamButton, Card, CardHead, ClassDot, RiskChip, Segmented, Stat, Swap } from "../components/ui.jsx";
+import { Alert, PrimaryButton, Card, CardHead, ClassDot, RiskChip, Segmented, Stat, Swap } from "../components/ui.jsx";
 import { ClassColumns, RiskBar } from "../charts/CohortCharts.jsx";
 
 function Dropzone({ file, setFile }) {
@@ -128,12 +128,12 @@ export default function Cohort() {
         <Card as="form" className="s12 upload" onSubmit={upload}>
           <Dropzone file={file} setFile={setFile} />
           <div className="upload__side">
-            <BeamButton wide busy={busy} type="submit" disabled={!file && !busy}>
+            <PrimaryButton wide busy={busy} type="submit" disabled={!file && !busy}>
               <Swap k={busy ? "b" : "i"}>
                 {busy ? "Predicting cohort" : "Upload and predict"}
                 {!busy && <UploadMinimalisticIcon size={18} className="arrow" />}
               </Swap>
-            </BeamButton>
+            </PrimaryButton>
             {past.length > 0 && (
               <div className="recent">
                 <span className="mono"><HistoryIcon size={13} />Recent</span>

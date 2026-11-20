@@ -49,8 +49,7 @@
 }
 .nav__item:hover { color: var(--text-1); }
 .nav__item.active { color: var(--text-1); }
-.nav__pill { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--surface-4); }
-:root[data-theme="light"] .nav__pill { background: #ffffff; }
+.nav__pill { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--raised); }
 .nav__icon { position: relative; width: 18px; height: 18px; display: grid; }
 .nav__icon > * { grid-area: 1 / 1; }
 .nav__item.active .nav__icon { color: var(--accent); }
@@ -106,10 +105,9 @@
   width: 240px;
   padding: 8px;
   border-radius: var(--r-lg);
-  background: var(--surface-3);
+  background: var(--raised);
   transform-origin: top right;
 }
-:root[data-theme="light"] .menu { background: #ffffff; }
 .menu__who { padding: 10px 12px 12px; }
 .menu__who div:first-child { font-size: 14px; font-weight: var(--w-medium); }
 .menu__item {
@@ -123,8 +121,7 @@
   font-size: 13.5px;
   transition: background var(--t-fast), color var(--t-fast);
 }
-.menu__item:hover { background: var(--surface-4); color: var(--text-1); }
-:root[data-theme="light"] .menu__item:hover { background: var(--surface-2); }
+.menu__item:hover { background: var(--surface-2); color: var(--text-1); }
 
 /* ---------- page ---------- */
 .page {

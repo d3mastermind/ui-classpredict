@@ -99,7 +99,7 @@
   border-radius: 4px;
   min-width: 4px;
   overflow: visible;
-  color: #0b0b0b;
+  color: #ffffff;
   font-size: 12px;
   font-weight: var(--w-medium);
   font-variant-numeric: tabular-nums;
@@ -132,7 +132,7 @@
 .cm__col { text-align: center; padding-bottom: 6px; }
 .cm__row { display: flex; align-items: center; }
 .cm__cell {
-  --hot-text: #15120a;
+  --hot-text: #ffffff;
   aspect-ratio: 1.6;
   display: grid;
   place-items: center;
@@ -144,7 +144,6 @@
   cursor: default;
   transition: transform var(--t-fast) var(--ease-out);
 }
-:root[data-theme="light"] .cm__cell { --hot-text: #ffffff; }
 .cm__cell.hot { color: var(--hot-text); }
 .cm__cell:hover { transform: scale(1.04); }
 .cm__foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; min-height: 22px; font-size: 13px; color: var(--text-2); }

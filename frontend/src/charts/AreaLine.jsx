@@ -118,8 +118,8 @@ export function AreaLine({ points, height = 230, yDomain = [1, 4], thresholds = 
         {/* value pill above the latest point */}
         {n > 0 && hover === null && (
           <motion.g initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.5, ease }}>
-            <rect x={x(last) - 22} y={y(points[last].y) - 32} width="44" height="20" rx="10" className="pill-bg" />
-            <text x={x(last)} y={y(points[last].y) - 18.5} textAnchor="middle" className="pill-text">{fmt(points[last].y)}</text>
+            <rect x={x(last) - (thresholds.length ? 40 : 22)} y={y(points[last].y) - 32} width="44" height="20" rx="10" className="pill-bg" />
+            <text x={x(last) - (thresholds.length ? 18 : 0)} y={y(points[last].y) - 18.5} textAnchor="middle" className="pill-text">{fmt(points[last].y)}</text>
           </motion.g>
         )}
 

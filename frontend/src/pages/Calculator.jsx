@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { TargetIcon, TuningSquare2Icon } from "@solar-icons/react/linear";
 import { CLASS_COLOR, CLASS_FLOOR, CLASSES } from "../api";
@@ -19,12 +19,13 @@ function targetsFor(cgpa, done, left) {
 }
 
 function SliderField({ label, value, onChange, min, max, step, decimals = 0, marks }) {
+  const id = useId();
   const v = Number(value);
   const p = ((Math.min(max, Math.max(min, v)) - min) / (max - min)) * 100;
   return (
     <div className="slider-field">
       <div className="slider-field__top">
-        <label className="field__label" htmlFor={`sl-${label}`}>{label}</label>
+        <label className="field__label" htmlFor={id}>{label}</label>
         <input
           className="slider-field__num num"
           type="number" inputMode="decimal" min={min} max={max} step={step}
@@ -34,7 +35,7 @@ function SliderField({ label, value, onChange, min, max, step, decimals = 0, mar
         />
       </div>
       <div className="slider-wrap">
-        <input id={`sl-${label}`} className="slider" type="range" min={min} max={max} step={step} value={Number.isNaN(v) ? min : v}
+        <input id={id} className="slider" type="range" min={min} max={max} step={step} value={Number.isNaN(v) ? min : v}
           style={{ "--p": `${p}%` }} onChange={(e) => onChange(Number(e.target.value).toFixed(decimals))} />
         {marks && (
           <div className="slider-marks" aria-hidden>

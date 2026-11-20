@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowRightIcon, KeyMinimalisticSquare2Icon, LetterIcon, LockKeyholeIcon, SquareAcademicCapIcon, UserIcon, UsersGroupRoundedIcon } from "@solar-icons/react/linear";
 import { api, setSession } from "../api";
 import { ease, rise, stagger } from "../lib/motion";
-import { Alert, BeamButton, Logo, Segmented, Swap, TextField, TextReveal } from "../components/ui.jsx";
+import { Alert, PrimaryButton, Logo, Segmented, Swap, TextField, TextReveal } from "../components/ui.jsx";
 
 const PREVIEW = [
   ["var(--c-first)", 0.18],
@@ -158,12 +158,12 @@ export default function Login({ onLogin }) {
           <AnimatePresence>{err && <Alert key="err">{err}</Alert>}</AnimatePresence>
 
           <motion.div variants={rise}>
-            <BeamButton wide busy={busy} type="submit">
+            <PrimaryButton wide busy={busy} type="submit">
               <Swap k={`${mode}-${busy}`}>
                 {busy ? "One moment" : reg ? "Create account" : "Log in"}
                 {!busy && <ArrowRightIcon size={18} className="arrow" />}
               </Swap>
-            </BeamButton>
+            </PrimaryButton>
           </motion.div>
 
           {!reg && (

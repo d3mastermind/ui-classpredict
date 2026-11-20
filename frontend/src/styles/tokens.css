@@ -1,12 +1,13 @@
 /* ClassPredict design tokens.
-   Brand: University of Ibadan navy + gold. Dark is the primary theme; light is selected, not flipped.
+   Brand: University of Ibadan navy + gold, on a single light theme.
    Rules: no borders, no shadows, nothing heavier than font-weight 500. Surfaces separate by tone. */
 
-@property --beam-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 @property --ht-phase { syntax: "<number>"; inherits: true; initial-value: 0; }
 @property --spot-o { syntax: "<number>"; inherits: true; initial-value: 0; }
 
 :root {
+  color-scheme: light;
+
   /* type */
   --font-sans: "Geist Variable", "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "Geist Mono Variable", "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -34,58 +35,8 @@
   --navy: #123f78;
   --navy-deep: #0a2550;
   --gold-brand: #c9a227;
-}
 
-/* ---------- dark (default) ---------- */
-:root,
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #07090e;
-  --bg-glow-1: rgba(18, 63, 120, 0.32);
-  --bg-glow-2: rgba(201, 162, 39, 0.07);
-  --surface-1: #0e121b;
-  --surface-1-hi: #121725;
-  --surface-2: #151a26;
-  --surface-3: #1b2130;
-  --surface-4: #232a3b;
-  --glass: rgba(14, 18, 27, 0.72);
-
-  --text-1: #edf0f5;
-  --text-2: #98a1b3;
-  --text-3: #5f687c;
-  --text-on-accent: #ffffff;
-
-  --accent: #e6c25c;          /* gold for UI accents */
-  --accent-soft: rgba(230, 194, 92, 0.12);
-  --accent-2: #8fa6ff;        /* light navy-blue for the beam tail */
-  --btn: #123f78;
-  --btn-hi: #1a4f94;
-  --track: #1b2130;
-  --grid: #1a2030;
-  --dot: rgba(237, 240, 245, 0.07);
-
-  /* data: class palette, validated (dark, surface #0e121b): all checks pass */
-  --c-first: #b88c2a;
-  --c-21: #6382f4;
-  --c-22: #22a08a;
-  --c-third: #e5604e;
-  --series-ink: #c9d0dd;
-
-  /* status (reserved for state, always with icon + label) */
-  --good: #3cc489;
-  --good-bg: rgba(60, 196, 137, 0.12);
-  --warn: #e7b043;
-  --warn-bg: rgba(231, 176, 67, 0.12);
-  --bad: #f0645a;
-  --bad-bg: rgba(240, 100, 90, 0.12);
-
-  --ht-color: rgba(230, 194, 92, 0.85);
-  --grain-opacity: 0.05;
-}
-
-/* ---------- light (selected values, validated on #ffffff) ---------- */
-:root[data-theme="light"] {
-  color-scheme: light;
+  /* surfaces */
   --bg: #f1f0eb;
   --bg-glow-1: rgba(18, 63, 120, 0.10);
   --bg-glow-2: rgba(201, 162, 39, 0.10);
@@ -95,27 +46,31 @@
   --surface-3: #ebe9e3;
   --surface-4: #e1dfd7;
   --glass: rgba(255, 255, 255, 0.75);
+  --raised: #ffffff;      /* popovers, active pills */
 
+  /* text */
   --text-1: #12151c;
   --text-2: #5a6070;
   --text-3: #959aa6;
   --text-on-accent: #ffffff;
 
+  /* accents */
   --accent: #a17a10;
   --accent-soft: rgba(161, 122, 16, 0.1);
-  --accent-2: #5b7cf0;
   --btn: #123f78;
   --btn-hi: #1a4f94;
   --track: #ebe9e3;
   --grid: #eceae4;
   --dot: rgba(18, 21, 28, 0.07);
 
+  /* data: class palette, validated on #ffffff (all colour-blind checks pass) */
   --c-first: #b07f12;
   --c-21: #3a5fd9;
   --c-22: #14876f;
   --c-third: #d2493c;
   --series-ink: #2a3140;
 
+  /* status (reserved for state, always with icon + label) */
   --good: #148a55;
   --good-bg: rgba(20, 138, 85, 0.1);
   --warn: #a86b00;

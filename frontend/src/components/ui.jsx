@@ -31,19 +31,17 @@ export function Logo({ size = 30 }) {
   );
 }
 
-/* ---------- border-beam button ---------- */
-export function BeamButton({ children, busy = false, wide = false, small = false, className = "", disabled, ...rest }) {
+/* ---------- primary button (shows a spinner while busy) ---------- */
+export function PrimaryButton({ children, busy = false, wide = false, small = false, className = "", disabled, ...rest }) {
   return (
     <button
       {...rest}
-      className={`beam${wide ? " wide" : ""}${small ? " sm" : ""}${busy ? " busy" : ""} ${className}`}
+      className={`btn-primary${wide ? " wide" : ""}${small ? " sm" : ""}${busy ? " busy" : ""} ${className}`}
       disabled={busy || disabled}
       aria-busy={busy || undefined}
     >
-      <span className="beam__glow" aria-hidden />
-      <span className="beam__fill" aria-hidden />
-      <span className="beam__ring" aria-hidden />
-      <span className="beam__label">{children}</span>
+      {busy && <span className="spinner" aria-hidden />}
+      {children}
     </button>
   );
 }

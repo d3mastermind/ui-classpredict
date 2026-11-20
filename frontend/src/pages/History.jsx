@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { ArrowRightIcon, ChartSquareIcon, HistoryIcon, StarsIcon, ListIcon } from "@solar-icons/react/linear";
 import { api, CLASS_COLOR, CLASS_FLOOR, SHORT, pct } from "../api";
 import { ease, rise, stagger } from "../lib/motion";
-import { Alert, BeamButton, Card, CardHead, ClassDot, Empty, Stat } from "../components/ui.jsx";
+import { Alert, PrimaryButton, Card, CardHead, ClassDot, Empty, Stat } from "../components/ui.jsx";
 import { AreaLine } from "../charts/AreaLine.jsx";
 
 const when = (iso) => new Date(iso + (iso.endsWith("Z") ? "" : "Z"));
@@ -19,9 +19,9 @@ export default function History() {
   const points = useMemo(() => {
     if (!rows) return [];
     const day = (r) => when(r.created_at).toLocaleDateString(undefined, { day: "numeric", month: "short" });
-    const sameDay = new Set(rows.map(day)).size === 1; // all on one day: label the axis by time instead
+    const distinctDays = new Set(rows.map(day)).size === rows.length; // otherwise label each point by its stage
     return [...rows].sort((a, b) => when(a.created_at) - when(b.created_at)).map((r) => ({
-      x: sameDay && rows.length > 1 ? when(r.created_at).toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" }) : day(r),
+      x: distinctDays ? day(r) : `${r.stage}00L`,
       y: r.cgpa_so_far,
       color: CLASS_COLOR[r.predicted_class],
       tip: (
@@ -53,7 +53,7 @@ export default function History() {
       {rows && rows.length === 0 && (
         <Card>
           <Empty icon={HistoryIcon} title="No predictions yet">
-            <BeamButton small onClick={() => nav("/predict")}>Make your first<ArrowRightIcon size={16} className="arrow" /></BeamButton>
+            <PrimaryButton small onClick={() => nav("/predict")}>Make your first<ArrowRightIcon size={16} className="arrow" /></PrimaryButton>
           </Empty>
         </Card>
       )}

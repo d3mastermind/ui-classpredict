@@ -6,7 +6,7 @@ import {
 import { api, CLASS_COLOR, CLASS_FLOOR, classForGpa, pct } from "../api";
 import { ease, rise, stagger } from "../lib/motion";
 import {
-  Alert, AnimatedNumber, BeamButton, Card, CardHead, Hint, NumberField, Segmented, Select, Swap, TextField, TextReveal,
+  Alert, AnimatedNumber, PrimaryButton, Card, CardHead, Hint, NumberField, Segmented, Select, Swap, TextField, TextReveal,
 } from "../components/ui.jsx";
 import { ProbabilityRings, RingsPlaceholder } from "../charts/Rings.jsx";
 import { CgpaGauge } from "../charts/Gauge.jsx";
@@ -129,7 +129,7 @@ export default function Predict({ user }) {
     const vals = GPA_KEYS.filter((k) => !(isDE && k.startsWith("gpa_100")))
       .map((k) => parseFloat(f[k])).filter((v) => !Number.isNaN(v) && v >= 0 && v <= 4);
     // round like the API (Python round on the float mean) so the live figure matches the result
-    return vals.length ? Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 100) / 100 : null;
+    return vals.length ? Number((vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(2)) : null;
   }, [f, isDE]);
 
   async function submit(e) {
@@ -224,12 +224,12 @@ export default function Predict({ user }) {
 
             <AnimatePresence>{err && <Alert key="err">{err}</Alert>}</AnimatePresence>
 
-            <BeamButton wide busy={busy} type="submit">
+            <PrimaryButton wide busy={busy} type="submit">
               <Swap k={busy ? "busy" : "idle"}>
                 {busy ? "Reading your results" : res ? "Predict again" : "Predict my class"}
                 {!busy && <ArrowRightIcon size={18} className="arrow" />}
               </Swap>
-            </BeamButton>
+            </PrimaryButton>
           </div>
         </Card>
 

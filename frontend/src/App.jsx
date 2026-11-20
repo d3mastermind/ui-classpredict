@@ -2,16 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import { Navigate, NavLink, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import {
-  CalculatorMinimalisticIcon, GraphNewUpIcon, HistoryIcon, Logout2Icon, MoonStarsIcon, StarsIcon, Sun2Icon, UsersGroupRoundedIcon,
+  CalculatorMinimalisticIcon, GraphNewUpIcon, HistoryIcon, Logout2Icon, StarsIcon, UsersGroupRoundedIcon,
 } from "@solar-icons/react/linear";
 import {
   CalculatorMinimalisticIcon as CalculatorDuo, GraphNewUpIcon as GraphDuo, HistoryIcon as HistoryDuo,
   StarsIcon as StarsDuo, UsersGroupRoundedIcon as UsersDuo,
 } from "@solar-icons/react/bold-duotone";
 import { savedUser, setSession } from "./api";
-import { currentTheme, toggleTheme } from "./lib/theme";
 import { ease, page, popover, spring } from "./lib/motion";
-import { Logo, Swap } from "./components/ui.jsx";
+import { Logo } from "./components/ui.jsx";
 import Login from "./pages/Login.jsx";
 import Predict from "./pages/Predict.jsx";
 import Calculator from "./pages/Calculator.jsx";
@@ -92,17 +91,6 @@ function UserMenu({ user, onLogout }) {
   );
 }
 
-function ThemeToggle() {
-  const [theme, setTheme] = useState(currentTheme());
-  return (
-    <button type="button" className="icon-btn" onClick={(e) => toggleTheme(e, setTheme)} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}>
-      <Swap k={theme}>
-        {theme === "dark" ? <MoonStarsIcon size={19} /> : <Sun2Icon size={19} />}
-      </Swap>
-    </button>
-  );
-}
-
 export default function App() {
   const [user, setUser] = useState(savedUser());
   const nav = useNavigate();
@@ -142,7 +130,6 @@ export default function App() {
         </nav>
         <div className="actions">
           <StatusPill />
-          <ThemeToggle />
           <UserMenu user={user} onLogout={logout} />
         </div>
       </motion.header>
