@@ -4,6 +4,9 @@
 
 CSC 476 (Research Methods in Computer Science) group project, Department of Computer Science, University of Ibadan.
 
+**Group members:** Adewole Adeniyi Emmanuel, Bukola Folasade Lydia, Lawal Hamzat Anuoluwapo, Ajibade Oluwaseyi Victor
+**Supervisor:** Prof. Bolanle F. Oladejo
+
 ClassPredict estimates the class of degree a University of Ibadan student is likely to graduate with (First Class, Second Class Upper, Second Class Lower or Third Class, on UI's 4.0 scale) from the results the student already has. It also shows the average GPA needed in the remaining semesters to reach each class, and lets academic advisers upload a whole cohort to see who is at risk.
 
 > **Important:** the models in this repository were trained on **simulated** student records that follow UI's 4.0 grading rules. No real student data was used. The accuracy figures show how well the method works on data that follows those rules; the models must be retrained on real, approved records before the system is used for real decisions.
