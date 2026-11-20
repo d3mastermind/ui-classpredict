@@ -10,3 +10,11 @@ backend/classpredict.db
 docs/out/
 docs/build/node_modules/
 docs/build/
+
+# Local assistant files and generated documents (not part of the source code)
+CLAUDE.md
+**/CLAUDE.md
+.claude/
+**/.claude/
+Claude outputs/
+outputs/
